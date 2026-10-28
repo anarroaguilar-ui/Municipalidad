@@ -442,6 +442,39 @@ img { max-width: 100%; display: block; }
 .gestion-fotos.fotos-1 .foto-card { aspect-ratio: auto; background: transparent; }
 .gestion-fotos.fotos-1 .foto-card img { width: 100%; height: auto; object-fit: contain; }
 
+/* "Ver más / Ver menos" */
+.gestion-card { scroll-margin-top: 90px; }   /* para que el navbar no tape la tarjeta */
+
+.vm-contenido {
+  position: relative;
+  overflow: hidden;
+  transition: max-height .35s ease;
+}
+.vm-contenido.vm-corto::after {              /* difuminado al final del texto cortado */
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 56px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+  pointer-events: none;
+}
+.vm-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 8px 22px;
+  border: 2px solid var(--verde);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--verde);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: .92rem;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.vm-btn:hover { background: var(--verde); color: #fff; }
+.vm-btn[hidden] { display: none; }
+
 /* ---------- AÑOS (tarjetas que llevan a 2023.html ... 2026.html) ---------- */
 .gm-anios { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
 .gm-anio {
