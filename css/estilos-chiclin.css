@@ -1,0 +1,846 @@
+/* ============================================================
+   Municipalidad del Centro Poblado de Chiclín
+   ============================================================ */
+:root {
+  --verde: #1f7a34;
+  --verde-oscuro: #0e3b1b;
+  --verde-profundo: #07230f;
+  --rojo: #c8102e;
+  --rojo-oscuro: #8f0b20;
+  --dorado: #e0a82e;
+  --dorado-claro: #f4cf6b;
+  --crema: #f8f3e6;
+  --texto: #1d2a21;
+  --texto-suave: #4d5b50;
+  --radio: 18px;
+  --sombra: 0 14px 34px rgba(7, 35, 15, .18);
+}
+
+/* ---------- BASE ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Outfit", sans-serif;
+  background: var(--crema);
+  color: var(--texto);
+  line-height: 1.7;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 5%;
+  background: linear-gradient(90deg, var(--verde-profundo), var(--verde-oscuro));
+  border-bottom: 3px solid var(--dorado);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .3);
+}
+.logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.logo-img {
+  width: 52px; height: 52px;
+  object-fit: contain;
+  background: var(--crema);
+  border-radius: 12px;
+  padding: 3px;
+  border: 2px solid var(--dorado);
+}
+.logo-text {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.05;
+  letter-spacing: 1.5px;
+  color: #fff;
+  max-width: 230px;
+}
+.logo-text b { color: var(--dorado-claro); font-weight: 400; }
+.nav-links { display: flex; gap: 6px; list-style: none; }
+.nav-links a {
+  display: block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: .95rem;
+  color: rgba(255, 255, 255, .85);
+  transition: background .25s, color .25s;
+}
+.nav-links a:hover { background: var(--dorado); color: var(--verde-profundo); }
+
+/* Botón "Volver" (páginas de año) */
+.btn-volver {
+  font-family: inherit;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 999px;
+  border: 2px solid var(--rojo);
+  background: var(--rojo);
+  color: #fff;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+.btn-volver:hover { background: var(--rojo-oscuro); transform: translateY(-2px); }
+
+/* ---------- HERO PRINCIPAL ---------- */
+.muni-hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 140px 6% 96px;            /* espacio abajo para los puntos */
+  overflow: hidden;
+  background: var(--verde-profundo);
+}
+
+/* Fondos que cambian solos (js/hero-slider.js) */
+.hero-slides { position: absolute; inset: 0; z-index: 0; }
+.hero-slide {
+  position: absolute; inset: 0;
+  background-position: center 30%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 1.2s ease-in-out, transform 7s ease-out;
+}
+.hero-slide.activo { opacity: 1; transform: scale(1); }
+
+/* Capa oscura: más fuerte a la izquierda (donde va el texto) y abajo */
+.muni-hero::before {
+  content: "";
+  z-index: 1;
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(7, 35, 15, .88) 0%, rgba(7, 35, 15, .62) 42%, rgba(7, 35, 15, .15) 80%),
+    linear-gradient(180deg, rgba(7, 35, 15, .35) 0%, rgba(7, 35, 15, .85) 100%);
+}
+/* Franja tricolor inferior */
+.muni-hero::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  height: 8px;
+  background: linear-gradient(90deg, var(--verde) 0 33.3%, var(--dorado) 33.3% 66.6%, var(--rojo) 66.6% 100%);
+}
+.muni-hero-content { position: relative; z-index: 2; max-width: 780px; }
+
+.muni-tag {
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: var(--dorado);
+  color: var(--verde-profundo);
+  font-weight: 700;
+  font-size: .85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+}
+.muni-hero h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: .95;
+  letter-spacing: 2px;
+  color: #fff;
+  margin: 16px 0 18px;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, .5);
+}
+.muni-hero h1 span { color: var(--dorado-claro); }
+.muni-hero p { color: rgba(255, 255, 255, .88); font-size: 1.1rem; max-width: 620px; }
+.muni-hero p strong { color: var(--dorado-claro); }
+
+/* Puntos para elegir la imagen (los crea js/hero-slider.js) */
+.hero-dots {
+  position: absolute;
+  left: 50%; bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex; align-items: center; gap: 12px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(7, 35, 15, .55);
+  backdrop-filter: blur(4px);
+}
+.hero-dot {
+  width: 12px; height: 12px;
+  padding: 0;
+  border-radius: 999px;
+  border: 2px solid var(--dorado-claro);
+  background: transparent;
+  cursor: pointer;
+  transition: width .3s, background .3s, transform .2s;
+}
+.hero-dot:hover { transform: scale(1.25); }
+.hero-dot:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.hero-dot.activo { width: 30px; background: var(--dorado); border-color: var(--dorado); }
+
+/* ---------- SECCIONES ---------- */
+/* .section = fondo crema  ·  .section.section-dark = fondo verde
+   (las secciones con id llevan además sus brillos, ver "Fondos") */
+.section { padding: 90px 0; background: var(--crema); }
+.section-dark { background: linear-gradient(180deg, var(--verde-oscuro), var(--verde-profundo)); }
+.container { width: min(1100px, 90%); margin: 0 auto; }
+.section-label-wrap { display: flex; align-items: center; gap: 14px; }
+.section-label {
+  font-weight: 700;
+  font-size: .8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rojo);
+}
+.section-line { height: 3px; width: 70px; background: var(--dorado); border-radius: 3px; }
+.section-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  letter-spacing: 1.5px;
+  line-height: 1.05;
+  color: var(--verde-oscuro);
+  margin: 10px 0 34px;
+}
+.section-dark .section-title { color: #fff; }
+.section-dark .section-label { color: var(--dorado-claro); }
+
+/* Fondos con brillos: crema (Resumen, Años) y verde (Gestión, Contacto) */
+#resumen,
+#anios {
+  background:
+    radial-gradient(circle at 6% 10%, rgba(224, 168, 46, .20), transparent 40%),
+    radial-gradient(circle at 96% 88%, rgba(63, 174, 85, .18), transparent 42%),
+    var(--crema);
+}
+#gestion,
+#contacto {
+  background:
+    radial-gradient(circle at 92% 6%, rgba(224, 168, 46, .26), transparent 40%),
+    radial-gradient(circle at 4% 96%, rgba(200, 16, 46, .20), transparent 42%),
+    linear-gradient(180deg, var(--verde-oscuro), var(--verde-profundo));
+}
+
+/* Franja tricolor de arriba (tarjetas de Gestión, Años y Facebook) */
+.gestion-card::before,
+.gm-anio::before,
+#contacto .facebook-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 10px;
+  background: linear-gradient(90deg, var(--verde) 0 33.3%, var(--dorado) 33.3% 66.6%, var(--rojo) 66.6% 100%);
+}
+
+/* ---------- FOTOS CLICABLES (se agrandan en el visor) ---------- */
+.foto-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radio);
+  border: 4px solid var(--dorado);
+  background: var(--verde-oscuro);
+  cursor: zoom-in;
+  aspect-ratio: 16 / 10;
+}
+.foto-card img { width: 100%; height: 100%; object-fit: cover; }
+.foto-card::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+  background: linear-gradient(90deg, var(--verde), var(--dorado), var(--rojo));
+}
+.foto-card img,
+.obra-foto img { transition: transform .3s ease; }
+.foto-card:hover img,
+.obra-foto:hover img { transform: scale(1.04); }
+
+/* ---------- RESUMEN: ALCALDE + LÍNEA DE TIEMPO ---------- */
+.resumen-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+  align-items: start;
+}
+
+/* Tarjeta del alcalde: foto vertical completa + panel verde */
+.alcalde-card {
+  width: min(100%, 420px);
+  justify-self: center;
+  background: var(--verde-oscuro);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 3px solid var(--dorado);
+}
+.alcalde-card .foto-card {
+  aspect-ratio: auto;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+.alcalde-card .foto-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.alcalde-info {
+  padding: 24px 26px 28px;
+  background: linear-gradient(160deg, var(--verde-oscuro), var(--verde));
+}
+.obra-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: var(--rojo);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.alcalde-info .obra-badge { border: 2px solid #fff; }
+.alcalde-nombre {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+  color: var(--dorado-claro);
+  margin: 10px 0 0;
+}
+.alcalde-lema { font-style: italic; font-weight: 500; color: #fff; margin-bottom: 10px; }
+.alcalde-desc { color: rgba(255, 255, 255, .9); }
+
+/* Línea de tiempo */
+.linea-tiempo {
+  list-style: none;
+  position: relative;
+  display: grid;
+  gap: 22px;
+  padding-left: 6px;
+}
+.linea-tiempo::before {
+  content: "";
+  position: absolute;
+  left: 47px; top: 10px; bottom: 10px;
+  width: 4px;
+  background: linear-gradient(180deg, var(--verde), var(--dorado), var(--rojo));
+  border-radius: 3px;
+}
+.linea-tiempo li { display: flex; gap: 22px; align-items: flex-start; position: relative; }
+.lt-anio {
+  flex: 0 0 86px;
+  padding: 4px 0;
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  color: var(--dorado-claro);
+  background: linear-gradient(160deg, var(--verde), var(--verde-oscuro));
+  border: 3px solid var(--dorado);
+  border-radius: 999px;
+  box-shadow: 0 0 0 5px var(--crema);   /* aro del color del fondo, no es sombra */
+  position: relative;
+  z-index: 1;
+}
+/* Cada año en una tarjeta blanca con franja de color a la izquierda */
+.linea-tiempo li > div {
+  padding: 12px 18px;
+  background: #fff;
+  border-radius: 14px;
+  border-left: 6px solid var(--verde);
+}
+.linea-tiempo li:nth-child(2) > div { border-left-color: var(--dorado); }
+.linea-tiempo li:nth-child(3) > div { border-left-color: var(--rojo); }
+.linea-tiempo li:nth-child(4) > div { border-left-color: var(--verde-oscuro); }
+.linea-tiempo h4 { font-size: 1.15rem; font-weight: 700; color: var(--verde-oscuro); margin-bottom: 2px; }
+.linea-tiempo p { color: var(--texto-suave); line-height: 1.6; }
+
+/* "También se hizo": panel verde con borde dorado */
+.tambien-hizo {
+  margin-top: 36px;
+  padding: 22px 26px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--verde-oscuro), var(--verde));
+  border: 3px solid var(--dorado);
+}
+.tambien-titulo {
+  display: block;
+  margin-bottom: 8px;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dorado-claro);
+}
+.tambien-hizo ul { list-style: none; display: grid; gap: 6px; color: #fff; }
+.tambien-hizo i { color: var(--dorado-claro); margin-right: 8px; }
+
+/* ---------- GESTIÓN: UN CUADRO POR AÑO (fotos alternadas) ---------- */
+.gestion-anios { display: grid; gap: 34px; }
+
+.gestion-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 34px;
+  align-items: center;
+  padding: 40px 28px 28px;
+  background: #fff;
+  border: 3px solid var(--dorado);
+  border-radius: 22px;
+}
+
+/* Pares (2024 y 2026): las fotos pasan a la derecha */
+.gestion-card:nth-child(even) { grid-template-columns: 1fr 1.1fr; }
+.gestion-card:nth-child(even) .gestion-fotos { order: 2; }
+
+/* Texto */
+.gestion-info { display: flex; flex-direction: column; gap: 6px; }
+.gestion-anio {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--verde);
+}
+.gestion-fecha {
+  align-self: flex-start;
+  padding: 3px 14px;
+  border-radius: 999px;
+  background: var(--rojo);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.gestion-titulo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  line-height: 1.05;
+  letter-spacing: 1px;
+  color: var(--verde-oscuro);
+  margin: 6px 0 8px;
+}
+.gestion-desc {
+  padding: 12px 16px;
+  background: var(--crema);
+  border-left: 4px solid var(--dorado);
+  border-radius: 0 12px 12px 0;
+  color: var(--texto-suave);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+.gestion-desc strong { color: var(--verde-oscuro); }
+
+/* Fotos */
+.gestion-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.gestion-fotos .foto-card { aspect-ratio: 4 / 3; border-width: 3px; }
+
+/* 2023: la primera foto ocupa todo el ancho */
+.gestion-fotos.fotos-5 .foto-card:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+
+/* 2025 y 2026: una sola imagen, completa (sin recorte) */
+.gestion-fotos.fotos-1 { grid-template-columns: 1fr; }
+.gestion-fotos.fotos-1 .foto-card { aspect-ratio: auto; background: transparent; }
+.gestion-fotos.fotos-1 .foto-card img { width: 100%; height: auto; object-fit: contain; }
+
+/* ---------- AÑOS (tarjetas que llevan a 2023.html ... 2026.html) ---------- */
+.gm-anios { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.gm-anio {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 38px 24px 24px;
+  background: #fff;
+  border: 3px solid var(--dorado);
+  border-radius: 20px;
+  transition: transform .3s, border-color .3s;
+}
+.gm-anio:hover { transform: translateY(-8px); border-color: var(--rojo); }
+.gm-anio-num {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--verde);
+}
+.gm-anio h3 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: var(--verde-oscuro);
+}
+.gm-anio-vacio {
+  margin: 6px 0 14px;
+  padding: 10px 14px;
+  background: var(--crema);
+  border-left: 4px solid var(--dorado);
+  border-radius: 0 12px 12px 0;
+  color: var(--texto-suave);
+  font-size: .95rem;
+}
+.gm-anio-ver {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--rojo);
+  color: #fff;
+  font-size: .9rem;
+  font-weight: 700;
+}
+.gm-anio:hover .gm-anio-ver { background: var(--rojo-oscuro); }
+
+/* Frase de invitación de la sección Años */
+.anios-intro {
+  max-width: 760px;
+  margin: -14px 0 30px;
+  padding: 14px 20px;
+  background: #fff;
+  border-left: 6px solid var(--dorado);
+  border-radius: 0 14px 14px 0;
+  color: var(--texto-suave);
+  font-size: 1.05rem;
+}
+.anios-intro strong { color: var(--verde-oscuro); }
+
+/* ---------- CONTACTO / FACEBOOK ---------- */
+.contacto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 28px; }
+.dato {
+  background: #fff;
+  border: 3px solid var(--dorado);
+  border-left: 10px solid var(--rojo);
+  border-radius: 14px;
+  padding: 18px 22px;
+}
+.dato-label { display: block; font-size: .75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--rojo); }
+.dato-val { display: block; font-size: 1.15rem; font-weight: 600; color: var(--verde-oscuro); }
+
+/* ---------- MAPA DE GOOGLE MAPS ---------- */
+.mapa-card {
+  width: 100%;
+  margin-bottom: 28px;
+  overflow: hidden;
+  border: 3px solid var(--dorado);
+  border-radius: 18px;
+  background: var(--verde-oscuro);
+}
+.mapa-card iframe {
+  display: block;
+  width: 100%;
+  height: 480px;          /* alto del mapa en PC: sube o baja este número */
+  border: 0;
+}
+.mapa-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--verde-oscuro);
+}
+.mapa-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: var(--rojo);
+  color: #fff;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.mapa-btn:hover { background: var(--dorado); color: var(--verde-profundo); }
+.mapa-btn:disabled { opacity: .6; cursor: wait; }
+.mapa-btn[hidden] { display: none; }
+.mapa-btn-sec { background: transparent; border-color: var(--dorado); color: var(--dorado-claro); }
+.mapa-estado {
+  padding: 0 16px 14px;
+  background: var(--verde-oscuro);
+  color: rgba(255, 255, 255, .9);
+  font-size: .92rem;
+}
+.mapa-estado:empty { display: none; }
+
+  .mapa-card { border-radius: 14px; }
+  .mapa-card iframe { height: 320px; }
+  .mapa-acciones { padding: 12px; }
+  .mapa-btn { padding: 8px 14px; font-size: .88rem; }
+
+/* Tarjeta de Facebook (también la usan las páginas de año) */
+.facebook-card {
+  text-align: center;
+  padding: 44px 26px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--verde-oscuro), var(--verde));
+  border: 3px solid var(--dorado);
+  box-shadow: var(--sombra);
+  color: #fff;
+}
+/* En Contacto: sin sombra y con la franja tricolor arriba */
+#contacto .facebook-card {
+  position: relative;
+  overflow: hidden;
+  padding: 56px 26px 44px;
+  box-shadow: none;
+}
+.facebook-icon {
+  width: 72px; height: 72px;
+  margin: 0 auto 14px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--crema);
+  color: #1877f2;
+  font-size: 2.4rem;
+}
+#contacto .facebook-icon { border: 3px solid var(--dorado); }
+.facebook-titulo { font-family: "Bebas Neue", sans-serif; font-size: 2rem; letter-spacing: 1.5px; color: var(--dorado-claro); }
+.facebook-texto { max-width: 520px; margin: 6px auto 22px; color: rgba(255, 255, 255, .88); }
+.facebook-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  background: var(--rojo);
+  color: #fff;
+  font-weight: 700;
+  border: 2px solid #fff;
+  transition: transform .2s, background .2s;
+}
+.facebook-btn:hover { background: var(--dorado); color: var(--verde-profundo); transform: translateY(-3px); }
+
+/* ---------- PÁGINAS DE AÑO (2023.html ... 2026.html) ---------- */
+.anio-hero {
+  position: relative;
+  padding: 140px 6% 70px;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(224, 168, 46, .28), transparent 45%),
+    linear-gradient(135deg, var(--verde-profundo), var(--verde-oscuro) 60%, var(--verde));
+  border-bottom: 8px solid var(--dorado);
+}
+.anio-volver { display: inline-block; font-weight: 600; color: var(--dorado-claro); margin-bottom: 6px; }
+.anio-volver:hover { text-decoration: underline; }
+.anio-hero h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(6rem, 18vw, 12rem);
+  line-height: .9;
+  color: var(--dorado-claro);
+  text-shadow: 6px 6px 0 var(--rojo-oscuro);
+}
+.anio-hero p { max-width: 620px; color: rgba(255, 255, 255, .88); margin: 10px 0 24px; font-size: 1.08rem; }
+.gm-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.gm-pill {
+  padding: 9px 24px;
+  border-radius: 999px;
+  border: 2px solid var(--dorado);
+  color: #fff;
+  font-weight: 700;
+  transition: background .2s, color .2s, transform .2s;
+}
+.gm-pill:hover { background: var(--dorado); color: var(--verde-profundo); transform: translateY(-2px); }
+.gm-pill.activo { background: var(--rojo); border-color: var(--rojo); color: #fff; }
+.anio-vacio-box {
+  text-align: center;
+  padding: 44px 24px;
+  margin-bottom: 28px;
+  border-radius: 20px;
+  background: #fff;
+  border: 3px dashed var(--dorado);
+  color: var(--verde-oscuro);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Tarjetas de obras: solo las usará cada página de año cuando cargues
+   contenido (están en el comentario de 2023.html ... 2026.html).
+   Si decides no usarlas, borra todo este bloque. */
+.obras-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 28px; }
+.obra-card {
+  background: var(--crema);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  border: 3px solid var(--dorado);
+  transition: transform .3s;
+}
+.obra-card:hover { transform: translateY(-6px); }
+.obra-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: var(--verde-profundo); }
+.obra-foto { aspect-ratio: 4 / 3; overflow: hidden; cursor: zoom-in; background: var(--verde-oscuro); }
+.obra-foto img { width: 100%; height: 100%; object-fit: cover; }
+.obra-info { padding: 24px 26px 28px; }
+.obra-titulo {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: var(--verde-oscuro);
+  margin: 10px 0 2px;
+}
+.obra-desc { color: var(--texto-suave); }
+
+/* ---------- FOOTER (páginas de año) ---------- */
+.footer { background: var(--verde-profundo); border-top: 6px solid var(--dorado); padding: 44px 6% 36px; text-align: center; color: rgba(255, 255, 255, .8); }
+.footer-logo { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.footer-logo img { width: 56px; height: 56px; object-fit: contain; background: var(--crema); border-radius: 12px; padding: 3px; border: 2px solid var(--dorado); }
+.footer-logo span { font-family: "Bebas Neue", sans-serif; font-size: 1.4rem; letter-spacing: 1.5px; color: var(--dorado-claro); text-align: left; line-height: 1.05; }
+.footer p { margin-bottom: 16px; }
+.footer button {
+  font-family: inherit; font-weight: 600;
+  padding: 10px 24px; border-radius: 999px;
+  border: 2px solid var(--dorado); background: transparent; color: var(--dorado-claro);
+  cursor: pointer; transition: background .2s, color .2s;
+}
+.footer button:hover { background: var(--dorado); color: var(--verde-profundo); }
+
+/* ---------- VISOR DE IMÁGENES ---------- */
+.img-visor {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, .9);
+  cursor: zoom-out;
+}
+.img-visor.activo { display: flex; animation: visorFade .25s ease; }
+.img-visor img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border: 4px solid var(--dorado);
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .6);
+  cursor: default;
+}
+.img-visor-cerrar {
+  position: absolute;
+  top: 16px; right: 20px;
+  width: 42px; height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .15);
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background .2s;
+}
+.img-visor-cerrar:hover { background: rgba(255, 255, 255, .3); }
+
+@keyframes visorFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ============================================================
+   CELULAR Y TABLET (va siempre al final del CSS)
+   ============================================================ */
+
+/* ---------- Tablet y celular grande (hasta 860px) ---------- */
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .logo-text { font-size: 1rem; max-width: 170px; }
+  .section { padding: 64px 0; }
+
+  .muni-hero { min-height: 70vh; padding: 120px 6% 90px; }
+  .muni-hero::before {
+    background: linear-gradient(180deg, rgba(7, 35, 15, .55) 0%, rgba(7, 35, 15, .92) 100%);
+  }
+
+  /* Resumen: una columna, tarjeta del alcalde centrada */
+  .resumen-grid { grid-template-columns: 1fr; }
+  #resumen .alcalde-card { width: min(100%, 460px); }
+
+  /* Gestión: una columna, fotos arriba */
+  .gestion-card,
+  .gestion-card:nth-child(even) { grid-template-columns: 1fr; padding: 36px 20px 20px; gap: 22px; }
+  .gestion-card:nth-child(even) .gestion-fotos { order: 0; }
+  .gestion-anio { font-size: 3.4rem; }
+  .gestion-titulo { font-size: 1.7rem; }
+
+  /* Contacto */
+  #contacto .facebook-card { padding: 50px 20px 36px; }
+}
+
+/* ---------- Celular (hasta 520px) ---------- */
+@media (max-width: 520px) {
+
+  /* Secciones: menos espacio arriba y abajo */
+  .section { padding: 52px 0; }
+  .section-title { margin-bottom: 24px; }
+  .section-label { font-size: .72rem; letter-spacing: 2px; }
+  .section-line { width: 44px; }
+
+  /* Barra superior */
+  .navbar { padding: 8px 4%; gap: 10px; }
+  .logo-img { width: 42px; height: 42px; }
+  .logo-text { font-size: .95rem; max-width: 150px; }
+  .btn-volver { padding: 7px 14px; font-size: .85rem; }
+
+  /* Portada */
+  .muni-hero { min-height: 64vh; padding: 110px 5% 84px; }
+  .muni-tag { font-size: .72rem; letter-spacing: 1.5px; padding: 5px 14px; }
+  .muni-hero h1 { font-size: 2.6rem; margin: 12px 0 12px; }
+  .muni-hero p { font-size: .98rem; }
+  .hero-dots { bottom: 20px; gap: 9px; padding: 6px 12px; }
+
+  /* ----- Resumen ----- */
+  #resumen .alcalde-card { width: 100%; }
+  #resumen .alcalde-info { padding: 20px 20px 24px; }
+  #resumen .alcalde-nombre { font-size: 2rem; }
+
+  /* Línea de tiempo más compacta (la línea se recalcula: 6px + mitad de la pastilla) */
+  #resumen .linea-tiempo { gap: 16px; }
+  #resumen .linea-tiempo::before { left: 36px; }
+  #resumen .linea-tiempo li { gap: 14px; }
+  #resumen .linea-tiempo li .lt-anio {
+    flex: 0 0 64px;
+    font-size: 1.3rem;
+    border-width: 2px;
+  }
+  #resumen .linea-tiempo li > div { padding: 10px 14px; }
+  #resumen .linea-tiempo h4 { font-size: 1.02rem; }
+  #resumen .linea-tiempo p { font-size: .92rem; }
+  #resumen .tambien-hizo { padding: 18px 18px; margin-top: 28px; }
+
+  /* ----- Gestión ----- */
+  #gestion .gestion-card { padding: 32px 16px 16px; border-width: 2px; }
+  #gestion .gestion-card::before { height: 8px; }
+  #gestion .gestion-anio { font-size: 3rem; }
+  #gestion .gestion-titulo { font-size: 1.5rem; }
+  #gestion .gestion-fecha { font-size: .72rem; letter-spacing: 2px; }
+  #gestion .gestion-desc { padding: 10px 12px; font-size: .95rem; }
+  #gestion .gestion-fotos { gap: 8px; }
+  .gestion-fotos .foto-card { border-radius: 12px; }
+
+  /* ----- Contacto ----- */
+  #contacto .dato { padding: 14px 16px; border-left-width: 8px; }
+  #contacto .dato-val { font-size: 1rem; }
+  #contacto .facebook-card { padding: 44px 16px 30px; border-radius: 18px; }
+  #contacto .facebook-icon { width: 60px; height: 60px; font-size: 2rem; }
+  .facebook-titulo { font-size: 1.6rem; }
+  .facebook-btn { padding: 12px 22px; font-size: .95rem; }
+
+  /* ----- Visor de imágenes ----- */
+  .img-visor { padding: 12px; }
+  .img-visor img { max-height: 85vh; border-width: 3px; }
+  .img-visor-cerrar { top: 10px; right: 10px; width: 38px; height: 38px; font-size: 1.1rem; }
+}
+
+/* Accesibilidad: sin animaciones si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* Frase de invitación de la sección Años */
+.anios-intro {
+  max-width: 760px;
+  margin: -14px 0 30px;
+  padding: 14px 20px;
+  background: #fff;
+  border-left: 6px solid var(--dorado);
+  border-radius: 0 14px 14px 0;
+  color: var(--texto-suave);
+  font-size: 1.05rem;
+  padding: 12px 16px; font-size: .98rem;
+}
+.anios-intro strong { color: var(--verde-oscuro); }

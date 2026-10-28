@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Municipalidad del Centro Poblado de Chiclín</title>
+  <link rel="icon" href="img/location/logo-chiclin.png"/>
+  <link rel="stylesheet" href="css/estilos-chiclin.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo" onclick="window.location.href='municipalidad.html'">
+      <img src="img/location/logo-chiclin.png" alt="Escudo de la Municipalidad del Centro Poblado de Chiclín" class="logo-img"/>
+      <span class="logo-text">Municipalidad del <b>Centro Poblado de Chiclín</b></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#resumen">Alcalde</a></li>
+      <li><a href="#gestion">Gestión</a></li>
+      <li><a href="#anios">Años</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="muni-hero">
+    <div class="hero-slides" aria-hidden="true">
+    <div class="hero-slide activo" style="background-image:url('img/location/fondo.png')"></div>
+    <div class="hero-slide" style="background-image:url('img/CHICLIN/Culturales/Muni1.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('img/CHICLIN/2023/setiembre 09 - 04.webp')"></div>
+    <div class="hero-slide" style="background-image:url('img/CHICLIN/2024/agosto 19 - 04.webp')"></div>
+    <div class="hero-slide" style="background-image:url('img/CHICLIN/2025/20 de noviembre.png')"></div>
+    </div>
+    <div class="muni-hero-content">
+      <span class="muni-tag">Chiclín · Gestión 2023 – 2026</span>
+      <h1>Municipalidad del <span>Centro Poblado de Chiclín</span></h1>
+      <p>Presidida por el alcalde <strong>Segundo Quezada Ríos</strong>, "el amigo del pueblo". Conoce cómo trabaja la gestión junto a los vecinos de Chiclín.</p>
+    </div>
+  </header>
+
+  <main id="gestion-municipal">
+
+        <!-- RESUMEN DE LA GESTIÓN -->
+    <section class="section" id="resumen">
+      <div class="container">
+        <div class="section-label-wrap">
+          <span class="section-label">Conoce al alcalde</span>
+          <div class="section-line"></div>
+        </div>
+        <h2 class="section-title">El amigo del pueblo y sus primeras acciones</h2>
+
+        <div class="resumen-grid">
+
+          <!-- Alcalde -->
+          <div class="alcalde-card">
+            <div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)">
+              <img src="img/CHICLIN/2023/enero 17 - 01.jpg" alt="El alcalde Segundo Quezada Ríos junto a los vecinos de Chiclín"/>
+            </div>
+            <div class="alcalde-info">
+              <span class="obra-badge">El alcalde</span>
+              <h3 class="alcalde-nombre">Segundo Quezada Ríos</h3>
+              <p class="alcalde-lema">"El amigo del pueblo"</p>
+              <p class="alcalde-desc">
+                Alcalde del Centro Poblado de Chiclín en la gestión 2023 – 2026. Lidera una gestión que
+                trabaja de la mano con instituciones y vecinos, y que desde la Casa de la Cultura, el
+                antiguo museo de la hacienda, busca el desarrollo del pueblo y la puesta en valor de su historia.
+              </p>
+              <!-- Aquí puedes agregar otro párrafo con su biografía real -->
+            </div>
+          </div>
+
+          <!-- Línea de tiempo -->
+          <ol class="linea-tiempo">
+            <li>
+              <span class="lt-anio">2023</span>
+              <div>
+                <h4>Primera campaña de limpieza pública</h4>
+                <p>Realizada junto a la Municipalidad Distrital, con la presencia del regidor distrital Dr. Víctor Miñano.</p>
+              </div>
+            </li>
+            <li>
+              <span class="lt-anio">2024</span>
+              <div>
+                <h4>Campaña médica integral</h4>
+                <p>Se brindó a la población junto al Gobierno Regional, con el apoyo de la Municipalidad Distrital de Chicama.</p>
+              </div>
+            </li>
+            <li>
+              <span class="lt-anio">2025</span>
+              <div>
+                <h4>Limpieza de la Plaza Mayor y los contenedores</h4>
+                <p>El alcalde y su equipo hicieron mantenimiento de la plaza y desinfectaron los contenedores de basura, y pidieron a los vecinos usarlos bien y respetar el horario de recolección.</p>
+              </div>
+            </li>
+            <li>
+              <span class="lt-anio">2026</span>
+              <div>
+                <h4>Limpieza y nivelación del sector Laguna</h4>
+                <p>Con maquinaria pesada y material de afirmado de la Municipalidad Distrital de Chicama, y con gestiones en marcha para mejorar el riego, la iluminación y la seguridad del sector.</p>
+              </div>
+            </li>
+          </ol>
+
+        </div>
+
+        <!-- Otras obras -->
+        <div class="tambien-hizo">
+          <span class="tambien-titulo">También se hizo</span>
+          <ul>
+            <li><i class="fa-solid fa-road"></i> Mejoramiento de veredas, incluido el acceso a la Asociación de Jubilados</li>
+            <li><i class="fa-solid fa-triangle-exclamation"></i> Reductores de velocidad en el paseo peatonal, en la calle Perú</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+      <!-- GESTIÓN -->
+    <section class="section section-dark" id="gestion">
+      <div class="container">
+        <div class="section-label-wrap">
+          <span class="section-label">La gestión</span>
+          <div class="section-line"></div>
+        </div>
+        <h2 class="section-title">Una gestión que dialogo con el pueblo todos estos años</h2>
+
+        <div class="gestion-anios">
+
+          <!-- 2023: fotos a la izquierda -->
+          <article class="gestion-card">
+            <div class="gestion-fotos fotos-5">
+              <div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)">
+                <img src="img/CHICLIN/2023/setiembre 09 - 01.webp" alt="Atención médica en la campaña de salud"/>
+              </div>
+              <div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)">
+                <img src="img/CHICLIN/2023/setiembre 09 - 02.webp" alt="Vecino siendo atendido en la campaña"/>
+              </div>
+              <div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)">
+                <img src="img/CHICLIN/2023/setiembre 09 - 03.webp" alt="Carpas de la campaña de salud en la plaza"/>
+              </div>
+              <div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)">
+                <img src="img/CHICLIN/2023/setiembre 09 - 04.webp" alt="Equipo de salud junto al Cristo de la plaza"/>
+              </div>
+              <div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)">
+                <img src="img/CHICLIN/2023/setiembre 09 - 05.webp" alt="Vecinos esperando atención en la campaña"/>
+              </div>
+            </div>
+
+            <div class="gestion-info">
+              <span class="gestion-anio">2023</span>
+              <span class="gestion-fecha">9 de setiembre</span>
+              <h3 class="gestion-titulo">Gran campaña de salud integral</h3>
+              <p class="gestion-desc">
+                La Municipalidad del Centro Poblado de Chiclín realizó la "Gran campaña de salud integral",
+                liderada y gestionada por el alcalde Segundo Quezada Ríos. Junto con el apoyo del Club de
+                Leones (Trujillo), la población fue atendida en diferentes especialidades, recibiendo la mejor
+                atención. Además, se regalaron monturas a las personas con problemas de vista.
+              </p>
+            </div>
+          </article>
+
+          <!-- 2024: fotos a la derecha -->
+          <article class="gestion-card">
+            <div class="gestion-fotos fotos-4">
+              <div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)">
+                <img src="img/CHICLIN/2024/agosto 19 - 01.webp" alt="Autoridades llegando al Sector Laguna"/>
+              </div>
+              <div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)">
+                <img src="img/CHICLIN/2024/agosto 19 - 02.webp" alt="Reunión con los vecinos del Sector Laguna"/>
+              </div>
+              <div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)">
+                <img src="img/CHICLIN/2024/agosto 19 - 03.webp" alt="Explicación del trámite de los expedientes"/>
+              </div>
+              <div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)">
+                <img src="img/CHICLIN/2024/agosto 19 - 04.webp" alt="Foto grupal con las familias del Sector Laguna"/>
+              </div>
+            </div>
+
+            <div class="gestion-info">
+              <span class="gestion-anio">2024</span>
+              <span class="gestion-fecha">19 de agosto</span>
+              <h3 class="gestion-titulo">13 nuevos títulos de propiedad para el sector Laguna</h3>
+              <p class="gestion-desc">
+                El alcalde del Centro Poblado de Chiclín, Segundo Quezada Ríos, recibió la visita de la
+                alcaldesa de Ascope, Rosario Cortijo, para reunirse con el Sector Laguna de Chiclín y anunciar
+                que los expedientes se están tramitando y que en breves días se entregará el documento formal,
+                con lo cual estas familias podrán obtener un beneficio social del Estado.
+              </p>
+              <p class="gestion-desc">
+                Así se reduce la informalidad en los pueblos, y esta gestión refleja el avance y la voluntad
+                de mejorar la calidad de vida de los habitantes.
+              </p>
+            </div>
+          </article>
+
+          <!-- 2025: fotos a la izquierda -->
+          <article class="gestion-card">
+            <div class="gestion-fotos fotos-1">
+              <div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)">
+                <img src="img/CHICLIN/2025/20 de noviembre.png" alt="Comité evaluando las propuestas del himno a Chiclín"/>
+              </div>
+            </div>
+
+            <div class="gestion-info">
+              <span class="gestion-anio">2025</span>
+              <span class="gestion-fecha">20 de noviembre</span>
+              <h3 class="gestion-titulo">¡Chiclín más cerca de tener su propio himno!</h3>
+              <p class="gestion-desc">
+                El viernes 14 de noviembre, el Comité Organizador evaluó las propuestas de composición musical
+                del Himno a Chiclín, con la presencia del alcalde Segundo Quezada Ríos. Se revisaron
+                detalladamente todos los trabajos presentados, verificando el cumplimiento de los requisitos
+                de las bases del concurso.
+              </p>
+              <p class="gestion-desc">
+                Quedaron preseleccionadas 3 composiciones, bajo los seudónimos <strong>El Chiclinense</strong>,
+                <strong>Rompe y Raja</strong> y <strong>Versos Sonoros</strong>. En la siguiente etapa, un
+                maestro de música especializado elegirá al ganador final. Este proceso marca un paso importante
+                en la construcción de un símbolo que representará la identidad, historia y orgullo del pueblo.
+              </p>
+            </div>
+          </article>
+
+          <!-- 2026: fotos a la derecha -->
+          <article class="gestion-card">
+            <div class="gestion-fotos fotos-1">
+              <div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)">
+                <img src="img/CHICLIN/2026/21 de abril.png" alt="Nueva iluminación LED en la calle 25 de Diciembre"/>
+              </div>
+            </div>
+
+            <div class="gestion-info">
+              <span class="gestion-anio">2026</span>
+              <span class="gestion-fecha">21 de abril</span>
+              <h3 class="gestion-titulo">Calle 25 de Diciembre, más segura e iluminada</h3>
+              <p class="gestion-desc">
+                Gracias a las gestiones del alcalde Segundo Quezada Ríos, se logró ante la empresa Hidrandina
+                la instalación de moderna luminaria LED de luz blanca en la calle 25 de Diciembre. Esta mejora
+                brinda mayor seguridad, mejor visibilidad y tranquilidad para los vecinos, beneficiando
+                directamente a las familias del sector.
+              </p>
+              <p class="gestion-desc">
+                Las gestiones se vienen realizando desde el año pasado; debido a la falta de dotación de
+                luminarias, se coordinó que los trabajos se iniciaran en estos meses, y hoy ya son una
+                realidad. Se sigue gestionando para que el cambio se implemente de manera paulatina en el
+                resto de calles del centro poblado.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+        <!-- CUATRO AÑOS DE GESTIÓN -->
+    <section class="section" id="anios">
+      <div class="container">
+        <div class="section-label-wrap">
+          <span class="section-label">Año por año</span>
+          <div class="section-line"></div>
+        </div>
+        <h2 class="section-title">Cuatro años de gestión</h2>
+
+        <p class="anios-intro">
+          <strong>Entra a cada año</strong> y conoce todo lo que se hizo en él: obras, campañas,
+          reuniones y actividades de la gestión, con sus fotos.
+        </p>
+
+        <div class="gm-anios">
+          <a class="gm-anio" href="2023.html">
+            <span class="gm-anio-num">2023</span>
+            <h3>Primer año</h3>
+            <p class="gm-anio-vacio">Campaña de salud integral, primera campaña de limpieza pública y más.</p>
+            <span class="gm-anio-ver">Entrar a 2023 →</span>
+          </a>
+
+          <a class="gm-anio" href="2024.html">
+            <span class="gm-anio-num">2024</span>
+            <h3>Segundo año</h3>
+            <p class="gm-anio-vacio">Títulos de propiedad para el sector Laguna, campaña médica integral y más.</p>
+            <span class="gm-anio-ver">Entrar a 2024 →</span>
+          </a>
+
+          <a class="gm-anio" href="2025.html">
+            <span class="gm-anio-num">2025</span>
+            <h3>Tercer año</h3>
+            <p class="gm-anio-vacio">El concurso del himno a Chiclín, limpieza de la Plaza Mayor y más.</p>
+            <span class="gm-anio-ver">Entrar a 2025 →</span>
+          </a>
+
+          <a class="gm-anio" href="2026.html">
+            <span class="gm-anio-num">2026</span>
+            <h3>Último año</h3>
+            <p class="gm-anio-vacio">Calle 25 de Diciembre iluminada, mejoras en el sector Laguna y más.</p>
+            <span class="gm-anio-ver">Entrar a 2026 →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section section-dark" id="contacto">
+      <div class="container">
+        <div class="section-label-wrap">
+          <span class="section-label">Contacto</span>
+          <div class="section-line"></div>
+        </div>
+        <h2 class="section-title">Cómo encontrarnos</h2>
+
+        <div class="contacto-grid">
+          <div class="dato">
+            <span class="dato-label">Dirección</span>
+            <span class="dato-val">Coliseo "Chicamero Quispe", Chiclín Hacienda, Perú</span>
+          </div>
+        </div>
+
+                  <!-- MAPA -->
+        <div class="mapa-card" id="mapa-card">
+          <iframe
+            id="mapa-iframe"
+            src="https://maps.google.com/maps?q=-7.836449,-79.162634&z=17&hl=es&output=embed"
+            title="Ubicación de la Municipalidad del Centro Poblado de Chiclín en Google Maps"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+
+          <div class="mapa-acciones">
+            <a id="btn-google-maps" class="mapa-btn mapa-btn-sec" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/dir/?api=1&destination=-7.836449,-79.162634">
+              <i class="fa-solid fa-route"></i> Abrir en Google Maps
+            </a>
+          </div>
+          <p id="mapa-estado" class="mapa-estado" role="status" aria-live="polite"></p>
+        </div>
+
+        </script>
+
+        <div class="facebook-card">
+          <div class="facebook-icon"><i class="fa-brands fa-facebook"></i></div>
+          <h5 class="facebook-titulo">Sigue el trabajo de la municipalidad</h5>
+          <p class="facebook-texto">Entérate de las obras, comunicados y actividades en la página oficial.</p>
+          <a href="https://www.facebook.com/municpchiclin/" target="_blank" rel="noopener" class="facebook-btn">
+            <i class="fa-brands fa-facebook"></i> Ir a Facebook
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- VISOR DE IMÁGENES -->
+  <div id="img-visor" class="img-visor" onclick="cerrarImagen()">
+    <button class="img-visor-cerrar" aria-label="Cerrar">✕</button>
+    <img id="img-visor-src" src="" alt="Imagen ampliada"/>
+  </div>
+
+    <!-- VISOR DE IMÁGENES -->
+  <div id="img-visor" class="img-visor" onclick="cerrarImagen()">
+    <button class="img-visor-cerrar" aria-label="Cerrar">✕</button>
+    <img id="img-visor-src" src="" alt="Imagen ampliada"/>
+  </div>
+
+  <script src="js/hero-slider.js"></script>
+  <script src="js/mapa.js"></script>
+
+</body>
+
+<script src="js/hero-slider.js"></script>
+</html>

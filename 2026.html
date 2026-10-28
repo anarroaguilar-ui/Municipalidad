@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2026 – Gestión Municipal · Municipalidad del Centro Poblado de Chiclín</title>
+  <link rel="icon" href="img/location/logo-chiclin.png"/>
+  <link rel="stylesheet" href="css/estilos-chiclin.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="logo" onclick="window.location.href='municipalidad.html'">
+      <img src="img/location/logo-chiclin.png" alt="Escudo de la Municipalidad del Centro Poblado de Chiclín" class="logo-img"/>
+      <span class="logo-text">Municipalidad del <b>Centro Poblado de Chiclín</b></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="municipalidad.html">Municipalidad</a></li>
+      <li><a href="municipalidad.html#anios">Años</a></li>
+    </ul>
+    <button class="btn-volver" onclick="window.location.href='municipalidad.html#anios'">← Volver</button>
+  </nav>
+
+  <header class="anio-hero">
+    <a href="municipalidad.html#anios" class="anio-volver">Cuatro años de gestión</a>
+    <h1>2026</h1>
+    <p>Obras y actividades de la Municipalidad del Centro Poblado de Chiclín durante 2026, gestión del alcalde Segundo Quezada Ríos.</p>
+    <nav class="gm-pills" aria-label="Años de gestión">
+      <a href="2023.html" class="gm-pill">2023</a>
+      <a href="2024.html" class="gm-pill">2024</a>
+      <a href="2025.html" class="gm-pill">2025</a>
+      <a href="2026.html" class="gm-pill">2026</a>
+    </nav>
+  </header>
+
+  <main id="gestion-municipal">
+    <section class="section">
+      <div class="container">
+
+        <!-- Mientras no haya obras cargadas, deja este recuadro. Cuando tengas contenido, bórralo
+             y copia debajo tarjetas obra-card (mira municipalidad.html, sección "Lo que se ha hecho"). -->
+        <div class="anio-vacio-box">
+          Pronto publicaremos las obras y actividades de 2026.<br/>
+          Mientras tanto, sigue a la municipalidad en su página oficial.
+        </div>
+
+        <!--
+        <div class="obras-grid">
+          <div class="obra-card">
+            <div class="obra-fotos">
+              <div class="obra-foto" onclick="abrirImagen(this.querySelector('img').src)">
+                <img src="img/CHICLIN/Culturales/FOTO.jpg" alt="Descripción"/>
+              </div>
+            </div>
+            <div class="obra-info">
+              <span class="obra-badge">Categoría</span>
+              <h3 class="obra-titulo">Título de la obra</h3>
+              <p class="obra-desc">Descripción de 1–2 líneas.</p>
+            </div>
+          </div>
+        </div>
+        -->
+
+        <div class="facebook-card">
+          <div class="facebook-icon"><i class="fa-brands fa-facebook"></i></div>
+          <h5 class="facebook-titulo">Sigue el trabajo de la municipalidad</h5>
+          <p class="facebook-texto">Obras, comunicados y actividades en la página oficial.</p>
+          <a href="https://www.facebook.com/municpchiclin/" target="_blank" rel="noopener" class="facebook-btn">
+            <i class="fa-brands fa-facebook"></i> Ir a Facebook
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="img/location/logo-chiclin.png" alt="Escudo de Chiclín"/>
+      <span>Municipalidad del<br/>Centro Poblado de Chiclín</span>
+    </div>
+    <p>Provincia de Ascope, La Libertad, Perú</p>
+    <button onclick="window.location.href='municipalidad.html'">← Volver a la municipalidad</button>
+  </footer>
+
+  <div id="img-visor" class="img-visor" onclick="cerrarImagen()">
+    <button class="img-visor-cerrar" aria-label="Cerrar">✕</button>
+    <img id="img-visor-src" src="" alt="Imagen ampliada"/>
+  </div>
+
+  <script>
+    function abrirImagen(src){document.getElementById('img-visor-src').src=src;document.getElementById('img-visor').classList.add('activo');}
+    function cerrarImagen(){document.getElementById('img-visor').classList.remove('activo');}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarImagen();});
+    // Marca el año actual en los botones
+    document.querySelectorAll('.gm-pill').forEach(function(a){
+      if(a.textContent.trim()==='2026') a.classList.add('activo');
+    });
+  </script>
+</body>
+</html>
