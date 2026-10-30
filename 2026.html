@@ -4,8 +4,10 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>2026 – Gestión Municipal · Municipalidad del Centro Poblado de Chiclín</title>
+  <meta name="description" content="Actividades de la Municipalidad del Centro Poblado de Chiclín durante 2026, gestión del alcalde Segundo Quezada Ríos."/>
   <link rel="icon" href="img/location/logo-chiclin.png"/>
   <link rel="stylesheet" href="css/estilos-chiclin.css"/>
+  <link rel="stylesheet" href="css/anio.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
@@ -27,41 +29,46 @@
     <a href="index.html#anios" class="anio-volver">Cuatro años de gestión</a>
     <h1>2026</h1>
     <p>Obras y actividades de la Municipalidad del Centro Poblado de Chiclín durante 2026, gestión del alcalde Segundo Quezada Ríos.</p>
+    <p class="anio-stats"><span><b>1</b> actividad</span><span><b>1</b> foto</span><span><b>1</b> mes</span></p>
     <nav class="gm-pills" aria-label="Años de gestión">
       <a href="2023.html" class="gm-pill">2023</a>
       <a href="2024.html" class="gm-pill">2024</a>
       <a href="2025.html" class="gm-pill">2025</a>
-      <a href="2026.html" class="gm-pill">2026</a>
+      <a href="2026.html" class="gm-pill activo">2026</a>
     </nav>
   </header>
 
+
   <main id="gestion-municipal">
-    <section class="section">
+    <section class="section" id="cronica">
       <div class="container">
 
-        <!-- Mientras no haya obras cargadas, deja este recuadro. Cuando tengas contenido, bórralo
-             y copia debajo tarjetas obra-card (mira index.html, sección "Lo que se ha hecho"). -->
-        <div class="anio-vacio-box">
-          Pronto publicaremos las obras y actividades de 2026.<br/>
-          Mientras tanto, sigue a la municipalidad en su página oficial.
+        <div class="section-label-wrap">
+          <span class="section-label">Día a día</span>
+          <div class="section-line"></div>
         </div>
+        <h2 class="section-title">Lo que se hizo en 2026</h2>
 
-        <!--
-        <div class="obras-grid">
-          <div class="obra-card">
-            <div class="obra-fotos">
-              <div class="obra-foto" onclick="abrirImagen(this.querySelector('img').src)">
-                <img src="img/CHICLIN/Culturales/FOTO.jpg" alt="Descripción"/>
-              </div>
-            </div>
-            <div class="obra-info">
-              <span class="obra-badge">Categoría</span>
-              <h3 class="obra-titulo">Título de la obra</h3>
-              <p class="obra-desc">Descripción de 1–2 líneas.</p>
-            </div>
-          </div>
+      <section class="mes" id="abril">
+        <div class="mes-cab">
+          <h2 class="mes-titulo">Abril</h2>
+          <span class="mes-cuenta">1 actividad</span>
+          <div class="section-line"></div>
         </div>
-        -->
+        <div class="eventos">
+          <article class="evento">
+            <time class="evento-fecha" datetime="2026-04-21"><span class="evento-dia">21</span><span class="evento-mes">abril</span></time>
+            <div class="evento-cuerpo">
+              <h3 class="evento-titulo">Calle 25 de Diciembre, más segura e iluminada</h3>
+              <p class="evento-texto">Gracias a las gestiones del alcalde Segundo Quezada Ríos, se logró ante la empresa Hidrandina la instalación de moderna luminaria LED de luz blanca en la calle 25 de Diciembre. Esta mejora brinda mayor seguridad, mejor visibilidad y tranquilidad para los vecinos, beneficiando directamente a las familias del sector.</p>
+              <p class="evento-texto">Las gestiones se vienen realizando desde el año pasado; debido a la falta de dotación de luminarias, se coordinó que los trabajos se iniciaran en estos meses, y hoy ya son una realidad. Se sigue gestionando para que el cambio se implemente de manera paulatina en el resto de calles del centro poblado.</p>
+          <ul class="galeria g1">
+            <li style="--ar:2.124"><div class="foto-card" onclick="abrirImagen(this.querySelector('img').src)"><img src="img/CHICLIN/2026/21 de abril.png" alt="Foto 1 de la actividad del 21 de abril de 2026" width="807" height="380" loading="lazy" decoding="async"/></div></li>
+          </ul>
+            </div>
+          </article>
+        </div>
+      </section>
 
         <div class="facebook-card">
           <div class="facebook-icon"><i class="fa-brands fa-facebook"></i></div>
@@ -85,19 +92,13 @@
     <button onclick="window.location.href='index.html'">← Volver a la municipalidad</button>
   </footer>
 
+  <!-- VISOR DE IMÁGENES -->
   <div id="img-visor" class="img-visor" onclick="cerrarImagen()">
     <button class="img-visor-cerrar" aria-label="Cerrar">✕</button>
     <img id="img-visor-src" src="" alt="Imagen ampliada"/>
   </div>
 
-  <script>
-    function abrirImagen(src){document.getElementById('img-visor-src').src=src;document.getElementById('img-visor').classList.add('activo');}
-    function cerrarImagen(){document.getElementById('img-visor').classList.remove('activo');}
-    document.addEventListener('keydown',function(e){if(e.key==='Escape')cerrarImagen();});
-    // Marca el año actual en los botones
-    document.querySelectorAll('.gm-pill').forEach(function(a){
-      if(a.textContent.trim()==='2026') a.classList.add('activo');
-    });
-  </script>
+  <script src="js/visor-imagenes.js"></script>
+  <script src="js/anio.js"></script>
 </body>
 </html>
