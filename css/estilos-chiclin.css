@@ -2,18 +2,18 @@
    Municipalidad del Centro Poblado de Chiclín
    ============================================================ */
 :root {
-  --verde: #1f7a34;
-  --verde-oscuro: #0e3b1b;
-  --verde-profundo: #07230f;
-  --rojo: #c8102e;
-  --rojo-oscuro: #8f0b20;
+  --vino: #7b1230;
+  --vino-oscuro: #4a0a1d;
+  --vino-profundo: #2a0510;
+  --rojo: #c2571a;
+  --rojo-oscuro: #8a3a0e;
   --dorado: #e0a82e;
   --dorado-claro: #f4cf6b;
   --crema: #f8f3e6;
-  --texto: #1d2a21;
-  --texto-suave: #4d5b50;
+  --texto: #2b1a1f;
+  --texto-suave: #5b4a4f;
   --radio: 18px;
-  --sombra: 0 14px 34px rgba(7, 35, 15, .18);
+  --sombra: 0 14px 34px rgba(42, 5, 16, .18);
 }
 
 /* ---------- BASE ---------- */
@@ -38,7 +38,7 @@ img { max-width: 100%; display: block; }
   justify-content: space-between;
   gap: 20px;
   padding: 10px 5%;
-  background: linear-gradient(90deg, var(--verde-profundo), var(--verde-oscuro));
+  background: linear-gradient(90deg, var(--vino-profundo), var(--vino-oscuro));
   border-bottom: 3px solid var(--dorado);
   box-shadow: 0 6px 20px rgba(0, 0, 0, .3);
 }
@@ -70,7 +70,7 @@ img { max-width: 100%; display: block; }
   color: rgba(255, 255, 255, .85);
   transition: background .25s, color .25s;
 }
-.nav-links a:hover { background: var(--dorado); color: var(--verde-profundo); }
+.nav-links a:hover { background: var(--dorado); color: var(--vino-profundo); }
 
 /* Botón "Volver" (páginas de año) */
 .btn-volver {
@@ -78,7 +78,7 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
   padding: 9px 20px;
   border-radius: 999px;
-  border: 2px solid var(--rojo);
+  border: 2px solid #fff;
   background: var(--rojo);
   color: #fff;
   cursor: pointer;
@@ -94,7 +94,7 @@ img { max-width: 100%; display: block; }
   align-items: flex-end;
   padding: 140px 6% 96px;            /* espacio abajo para los puntos */
   overflow: hidden;
-  background: var(--verde-profundo);
+  background: var(--vino-profundo);
 }
 
 /* Fondos que cambian solos (js/hero-slider.js) */
@@ -116,8 +116,8 @@ img { max-width: 100%; display: block; }
   z-index: 1;
   position: absolute; inset: 0;
   background:
-    linear-gradient(90deg, rgba(7, 35, 15, .88) 0%, rgba(7, 35, 15, .62) 42%, rgba(7, 35, 15, .15) 80%),
-    linear-gradient(180deg, rgba(7, 35, 15, .35) 0%, rgba(7, 35, 15, .85) 100%);
+    linear-gradient(90deg, rgba(42, 5, 16, .88) 0%, rgba(42, 5, 16, .62) 42%, rgba(42, 5, 16, .15) 80%),
+    linear-gradient(180deg, rgba(42, 5, 16, .35) 0%, rgba(42, 5, 16, .85) 100%);
 }
 /* Franja tricolor inferior */
 .muni-hero::after {
@@ -125,7 +125,7 @@ img { max-width: 100%; display: block; }
   position: absolute; left: 0; right: 0; bottom: 0;
   z-index: 3;
   height: 8px;
-  background: linear-gradient(90deg, var(--verde) 0 33.3%, var(--dorado) 33.3% 66.6%, var(--rojo) 66.6% 100%);
+  background: linear-gradient(90deg, var(--vino) 0 33.3%, var(--dorado) 33.3% 66.6%, var(--rojo) 66.6% 100%);
 }
 .muni-hero-content { position: relative; z-index: 2; max-width: 780px; }
 
@@ -134,7 +134,7 @@ img { max-width: 100%; display: block; }
   padding: 6px 18px;
   border-radius: 999px;
   background: var(--dorado);
-  color: var(--verde-profundo);
+  color: var(--vino-profundo);
   font-weight: 700;
   font-size: .85rem;
   letter-spacing: 2px;
@@ -163,7 +163,7 @@ img { max-width: 100%; display: block; }
   display: flex; align-items: center; gap: 12px;
   padding: 8px 14px;
   border-radius: 999px;
-  background: rgba(7, 35, 15, .55);
+  background: rgba(42, 5, 16, .55);
   backdrop-filter: blur(4px);
 }
 .hero-dot {
@@ -180,10 +180,10 @@ img { max-width: 100%; display: block; }
 .hero-dot.activo { width: 30px; background: var(--dorado); border-color: var(--dorado); }
 
 /* ---------- SECCIONES ---------- */
-/* .section = fondo crema  ·  .section.section-dark = fondo verde
+/* .section = fondo crema  ·  .section.section-dark = fondo vino
    (las secciones con id llevan además sus brillos, ver "Fondos") */
 .section { padding: 90px 0; background: var(--crema); }
-.section-dark { background: linear-gradient(180deg, var(--verde-oscuro), var(--verde-profundo)); }
+.section-dark { background: linear-gradient(180deg, var(--vino-oscuro), var(--vino-profundo)); }
 .container { width: min(1100px, 90%); margin: 0 auto; }
 .section-label-wrap { display: flex; align-items: center; gap: 14px; }
 .section-label {
@@ -199,26 +199,26 @@ img { max-width: 100%; display: block; }
   font-size: clamp(2.2rem, 5vw, 3.4rem);
   letter-spacing: 1.5px;
   line-height: 1.05;
-  color: var(--verde-oscuro);
+  color: var(--vino-oscuro);
   margin: 10px 0 34px;
 }
 .section-dark .section-title { color: #fff; }
 .section-dark .section-label { color: var(--dorado-claro); }
 
-/* Fondos con brillos: crema (Resumen, Años) y verde (Gestión, Contacto) */
+/* Fondos con brillos: crema (Resumen, Años) y vino (Gestión, Contacto) */
 #resumen,
 #anios {
   background:
     radial-gradient(circle at 6% 10%, rgba(224, 168, 46, .20), transparent 40%),
-    radial-gradient(circle at 96% 88%, rgba(63, 174, 85, .18), transparent 42%),
+    radial-gradient(circle at 96% 88%, rgba(123, 18, 48, .13), transparent 42%),
     var(--crema);
 }
 #gestion,
 #contacto {
   background:
     radial-gradient(circle at 92% 6%, rgba(224, 168, 46, .26), transparent 40%),
-    radial-gradient(circle at 4% 96%, rgba(200, 16, 46, .20), transparent 42%),
-    linear-gradient(180deg, var(--verde-oscuro), var(--verde-profundo));
+    radial-gradient(circle at 4% 96%, rgba(194, 87, 26, .34), transparent 42%),
+    linear-gradient(180deg, var(--vino-oscuro), var(--vino-profundo));
 }
 
 /* Franja tricolor de arriba (tarjetas de Gestión, Años y Facebook) */
@@ -229,7 +229,7 @@ img { max-width: 100%; display: block; }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 10px;
-  background: linear-gradient(90deg, var(--verde) 0 33.3%, var(--dorado) 33.3% 66.6%, var(--rojo) 66.6% 100%);
+  background: linear-gradient(90deg, var(--vino) 0 33.3%, var(--dorado) 33.3% 66.6%, var(--rojo) 66.6% 100%);
 }
 
 /* ---------- FOTOS CLICABLES (se agrandan en el visor) ---------- */
@@ -238,7 +238,7 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   border-radius: var(--radio);
   border: 4px solid var(--dorado);
-  background: var(--verde-oscuro);
+  background: var(--vino-oscuro);
   cursor: zoom-in;
   aspect-ratio: 16 / 10;
 }
@@ -246,7 +246,7 @@ img { max-width: 100%; display: block; }
 .foto-card::after {
   content: "";
   position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
-  background: linear-gradient(90deg, var(--verde), var(--dorado), var(--rojo));
+  background: linear-gradient(90deg, var(--vino), var(--dorado), var(--rojo));
 }
 .foto-card img,
 .obra-foto img { transition: transform .3s ease; }
@@ -261,11 +261,11 @@ img { max-width: 100%; display: block; }
   align-items: start;
 }
 
-/* Tarjeta del alcalde: foto vertical completa + panel verde */
+/* Tarjeta del alcalde: foto vertical completa + panel vino */
 .alcalde-card {
   width: min(100%, 420px);
   justify-self: center;
-  background: var(--verde-oscuro);
+  background: var(--vino-oscuro);
   border-radius: 22px;
   overflow: hidden;
   border: 3px solid var(--dorado);
@@ -283,7 +283,7 @@ img { max-width: 100%; display: block; }
 }
 .alcalde-info {
   padding: 24px 26px 28px;
-  background: linear-gradient(160deg, var(--verde-oscuro), var(--verde));
+  background: linear-gradient(160deg, var(--vino-oscuro), var(--vino));
 }
 .obra-badge {
   display: inline-block;
@@ -320,7 +320,7 @@ img { max-width: 100%; display: block; }
   position: absolute;
   left: 47px; top: 10px; bottom: 10px;
   width: 4px;
-  background: linear-gradient(180deg, var(--verde), var(--dorado), var(--rojo));
+  background: linear-gradient(180deg, var(--vino), var(--dorado), var(--rojo));
   border-radius: 3px;
 }
 .linea-tiempo li { display: flex; gap: 22px; align-items: flex-start; position: relative; }
@@ -332,7 +332,7 @@ img { max-width: 100%; display: block; }
   font-size: 1.7rem;
   letter-spacing: 1px;
   color: var(--dorado-claro);
-  background: linear-gradient(160deg, var(--verde), var(--verde-oscuro));
+  background: linear-gradient(160deg, var(--vino), var(--vino-oscuro));
   border: 3px solid var(--dorado);
   border-radius: 999px;
   box-shadow: 0 0 0 5px var(--crema);   /* aro del color del fondo, no es sombra */
@@ -344,20 +344,20 @@ img { max-width: 100%; display: block; }
   padding: 12px 18px;
   background: #fff;
   border-radius: 14px;
-  border-left: 6px solid var(--verde);
+  border-left: 6px solid var(--vino);
 }
 .linea-tiempo li:nth-child(2) > div { border-left-color: var(--dorado); }
 .linea-tiempo li:nth-child(3) > div { border-left-color: var(--rojo); }
-.linea-tiempo li:nth-child(4) > div { border-left-color: var(--verde-oscuro); }
-.linea-tiempo h4 { font-size: 1.15rem; font-weight: 700; color: var(--verde-oscuro); margin-bottom: 2px; }
+.linea-tiempo li:nth-child(4) > div { border-left-color: var(--vino-oscuro); }
+.linea-tiempo h4 { font-size: 1.15rem; font-weight: 700; color: var(--vino-oscuro); margin-bottom: 2px; }
 .linea-tiempo p { color: var(--texto-suave); line-height: 1.6; }
 
-/* "También se hizo": panel verde con borde dorado */
+/* "También se hizo": panel vino con borde dorado */
 .tambien-hizo {
   margin-top: 36px;
   padding: 22px 26px;
   border-radius: 18px;
-  background: linear-gradient(135deg, var(--verde-oscuro), var(--verde));
+  background: linear-gradient(135deg, var(--vino-oscuro), var(--vino));
   border: 3px solid var(--dorado);
 }
 .tambien-titulo {
@@ -398,7 +398,7 @@ img { max-width: 100%; display: block; }
   font-family: "Bebas Neue", sans-serif;
   font-size: 4.5rem;
   line-height: 1;
-  color: var(--verde);
+  color: var(--vino);
 }
 .gestion-fecha {
   align-self: flex-start;
@@ -416,7 +416,7 @@ img { max-width: 100%; display: block; }
   font-size: 2rem;
   line-height: 1.05;
   letter-spacing: 1px;
-  color: var(--verde-oscuro);
+  color: var(--vino-oscuro);
   margin: 6px 0 8px;
 }
 .gestion-desc {
@@ -428,7 +428,7 @@ img { max-width: 100%; display: block; }
   line-height: 1.7;
   margin-bottom: 8px;
 }
-.gestion-desc strong { color: var(--verde-oscuro); }
+.gestion-desc strong { color: var(--vino-oscuro); }
 
 /* Fotos */
 .gestion-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -462,17 +462,17 @@ img { max-width: 100%; display: block; }
   align-self: flex-start;
   margin-top: 4px;
   padding: 8px 22px;
-  border: 2px solid var(--verde);
+  border: 2px solid var(--vino);
   border-radius: 999px;
   background: transparent;
-  color: var(--verde);
+  color: var(--vino);
   font-family: inherit;
   font-weight: 700;
   font-size: .92rem;
   cursor: pointer;
   transition: background .2s, color .2s;
 }
-.vm-btn:hover { background: var(--verde); color: #fff; }
+.vm-btn:hover { background: var(--vino); color: #fff; }
 .vm-btn[hidden] { display: none; }
 
 /* ---------- AÑOS (tarjetas que llevan a 2023.html ... 2026.html) ---------- */
@@ -494,13 +494,13 @@ img { max-width: 100%; display: block; }
   font-family: "Bebas Neue", sans-serif;
   font-size: 4rem;
   line-height: 1;
-  color: var(--verde);
+  color: var(--vino);
 }
 .gm-anio h3 {
   font-family: "Bebas Neue", sans-serif;
   font-size: 1.5rem;
   letter-spacing: 1px;
-  color: var(--verde-oscuro);
+  color: var(--vino-oscuro);
 }
 .gm-anio-vacio {
   margin: 6px 0 14px;
@@ -534,7 +534,7 @@ img { max-width: 100%; display: block; }
   color: var(--texto-suave);
   font-size: 1.05rem;
 }
-.anios-intro strong { color: var(--verde-oscuro); }
+.anios-intro strong { color: var(--vino-oscuro); }
 
 /* ---------- CONTACTO / FACEBOOK ---------- */
 .contacto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 28px; }
@@ -546,7 +546,7 @@ img { max-width: 100%; display: block; }
   padding: 18px 22px;
 }
 .dato-label { display: block; font-size: .75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--rojo); }
-.dato-val { display: block; font-size: 1.15rem; font-weight: 600; color: var(--verde-oscuro); }
+.dato-val { display: block; font-size: 1.15rem; font-weight: 600; color: var(--vino-oscuro); }
 
 /* ---------- MAPA DE GOOGLE MAPS ---------- */
 .mapa-card {
@@ -555,7 +555,7 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   border: 3px solid var(--dorado);
   border-radius: 18px;
-  background: var(--verde-oscuro);
+  background: var(--vino-oscuro);
 }
 .mapa-card iframe {
   display: block;
@@ -568,7 +568,7 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
   gap: 10px;
   padding: 14px 16px;
-  background: var(--verde-oscuro);
+  background: var(--vino-oscuro);
 }
 .mapa-btn {
   display: inline-flex; align-items: center; gap: 8px;
@@ -583,29 +583,31 @@ img { max-width: 100%; display: block; }
   cursor: pointer;
   transition: background .2s, color .2s;
 }
-.mapa-btn:hover { background: var(--dorado); color: var(--verde-profundo); }
+.mapa-btn:hover { background: var(--dorado); color: var(--vino-profundo); }
 .mapa-btn:disabled { opacity: .6; cursor: wait; }
 .mapa-btn[hidden] { display: none; }
 .mapa-btn-sec { background: transparent; border-color: var(--dorado); color: var(--dorado-claro); }
 .mapa-estado {
   padding: 0 16px 14px;
-  background: var(--verde-oscuro);
+  background: var(--vino-oscuro);
   color: rgba(255, 255, 255, .9);
   font-size: .92rem;
 }
 .mapa-estado:empty { display: none; }
 
+@media (max-width: 860px) {
   .mapa-card { border-radius: 14px; }
   .mapa-card iframe { height: 320px; }
   .mapa-acciones { padding: 12px; }
   .mapa-btn { padding: 8px 14px; font-size: .88rem; }
+}
 
 /* Tarjeta de Facebook (también la usan las páginas de año) */
 .facebook-card {
   text-align: center;
   padding: 44px 26px;
   border-radius: 24px;
-  background: linear-gradient(135deg, var(--verde-oscuro), var(--verde));
+  background: linear-gradient(135deg, var(--vino-oscuro), var(--vino));
   border: 3px solid var(--dorado);
   box-shadow: var(--sombra);
   color: #fff;
@@ -623,7 +625,7 @@ img { max-width: 100%; display: block; }
   display: grid; place-items: center;
   border-radius: 50%;
   background: var(--crema);
-  color: #1877f2;
+  color: #7b1230;
   font-size: 2.4rem;
 }
 #contacto .facebook-icon { border: 3px solid var(--dorado); }
@@ -639,7 +641,7 @@ img { max-width: 100%; display: block; }
   border: 2px solid #fff;
   transition: transform .2s, background .2s;
 }
-.facebook-btn:hover { background: var(--dorado); color: var(--verde-profundo); transform: translateY(-3px); }
+.facebook-btn:hover { background: var(--dorado); color: var(--vino-profundo); transform: translateY(-3px); }
 
 /* ---------- PÁGINAS DE AÑO (2023.html ... 2026.html) ---------- */
 .anio-hero {
@@ -647,7 +649,7 @@ img { max-width: 100%; display: block; }
   padding: 140px 6% 70px;
   background:
     radial-gradient(circle at 85% 20%, rgba(224, 168, 46, .28), transparent 45%),
-    linear-gradient(135deg, var(--verde-profundo), var(--verde-oscuro) 60%, var(--verde));
+    linear-gradient(135deg, var(--vino-profundo), var(--vino-oscuro) 60%, var(--vino));
   border-bottom: 8px solid var(--dorado);
 }
 .anio-volver { display: inline-block; font-weight: 600; color: var(--dorado-claro); margin-bottom: 6px; }
@@ -657,7 +659,7 @@ img { max-width: 100%; display: block; }
   font-size: clamp(6rem, 18vw, 12rem);
   line-height: .9;
   color: var(--dorado-claro);
-  text-shadow: 6px 6px 0 var(--rojo-oscuro);
+  text-shadow: 6px 6px 0 var(--rojo);
 }
 .anio-hero p { max-width: 620px; color: rgba(255, 255, 255, .88); margin: 10px 0 24px; font-size: 1.08rem; }
 .gm-pills { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -669,8 +671,8 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   transition: background .2s, color .2s, transform .2s;
 }
-.gm-pill:hover { background: var(--dorado); color: var(--verde-profundo); transform: translateY(-2px); }
-.gm-pill.activo { background: var(--rojo); border-color: var(--rojo); color: #fff; }
+.gm-pill:hover { background: var(--dorado); color: var(--vino-profundo); transform: translateY(-2px); }
+.gm-pill.activo { background: var(--rojo); border-color: #fff; color: #fff; }
 .anio-vacio-box {
   text-align: center;
   padding: 44px 24px;
@@ -678,7 +680,7 @@ img { max-width: 100%; display: block; }
   border-radius: 20px;
   background: #fff;
   border: 3px dashed var(--dorado);
-  color: var(--verde-oscuro);
+  color: var(--vino-oscuro);
   font-size: 1.1rem;
   font-weight: 500;
 }
@@ -696,21 +698,21 @@ img { max-width: 100%; display: block; }
   transition: transform .3s;
 }
 .obra-card:hover { transform: translateY(-6px); }
-.obra-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: var(--verde-profundo); }
-.obra-foto { aspect-ratio: 4 / 3; overflow: hidden; cursor: zoom-in; background: var(--verde-oscuro); }
+.obra-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: var(--vino-profundo); }
+.obra-foto { aspect-ratio: 4 / 3; overflow: hidden; cursor: zoom-in; background: var(--vino-oscuro); }
 .obra-foto img { width: 100%; height: 100%; object-fit: cover; }
 .obra-info { padding: 24px 26px 28px; }
 .obra-titulo {
   font-family: "Bebas Neue", sans-serif;
   font-size: 2rem;
   letter-spacing: 1px;
-  color: var(--verde-oscuro);
+  color: var(--vino-oscuro);
   margin: 10px 0 2px;
 }
 .obra-desc { color: var(--texto-suave); }
 
 /* ---------- FOOTER (páginas de año) ---------- */
-.footer { background: var(--verde-profundo); border-top: 6px solid var(--dorado); padding: 44px 6% 36px; text-align: center; color: rgba(255, 255, 255, .8); }
+.footer { background: var(--vino-profundo); border-top: 6px solid var(--dorado); padding: 44px 6% 36px; text-align: center; color: rgba(255, 255, 255, .8); }
 .footer-logo { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 10px; }
 .footer-logo img { width: 56px; height: 56px; object-fit: contain; background: var(--crema); border-radius: 12px; padding: 3px; border: 2px solid var(--dorado); }
 .footer-logo span { font-family: "Bebas Neue", sans-serif; font-size: 1.4rem; letter-spacing: 1.5px; color: var(--dorado-claro); text-align: left; line-height: 1.05; }
@@ -721,7 +723,7 @@ img { max-width: 100%; display: block; }
   border: 2px solid var(--dorado); background: transparent; color: var(--dorado-claro);
   cursor: pointer; transition: background .2s, color .2s;
 }
-.footer button:hover { background: var(--dorado); color: var(--verde-profundo); }
+.footer button:hover { background: var(--dorado); color: var(--vino-profundo); }
 
 /* ---------- VISOR DE IMÁGENES ---------- */
 .img-visor {
@@ -776,7 +778,7 @@ img { max-width: 100%; display: block; }
 
   .muni-hero { min-height: 70vh; padding: 120px 6% 90px; }
   .muni-hero::before {
-    background: linear-gradient(180deg, rgba(7, 35, 15, .55) 0%, rgba(7, 35, 15, .92) 100%);
+    background: linear-gradient(180deg, rgba(42, 5, 16, .55) 0%, rgba(42, 5, 16, .92) 100%);
   }
 
   /* Resumen: una columna, tarjeta del alcalde centrada */
@@ -876,4 +878,4 @@ img { max-width: 100%; display: block; }
   font-size: 1.05rem;
   padding: 12px 16px; font-size: .98rem;
 }
-.anios-intro strong { color: var(--verde-oscuro); }
+.anios-intro strong { color: var(--vino-oscuro); }
