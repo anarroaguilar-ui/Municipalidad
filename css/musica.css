@@ -1,0 +1,70 @@
+/* ============================================================
+   MÚSICA DE FONDO: botón para silenciar (js/musica.js)
+   (guárdalo como css/musica.css y enlázalo en el <head>, o pega todo al FINAL de estilos-chiclin.css)
+   ============================================================ */
+.musica-btn {
+  position: fixed;
+  right: 18px; bottom: 18px;
+  z-index: 60;
+  width: 54px; height: 54px;
+  display: grid; place-items: center;
+  padding: 0;
+  border: 3px solid var(--dorado, #e0a82e);
+  border-radius: 50%;
+  background: var(--vino, #7b1230);
+  color: var(--dorado-claro, #f4cf6b);
+  cursor: pointer;
+  transition: transform .2s, background .2s, color .2s;
+}
+.musica-btn:hover { transform: scale(1.08); background: var(--vino-oscuro, #4a0a1d); }
+.musica-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.musica-btn[hidden] { display: none; }
+.musica-btn.musica-fallo { opacity: .6; }
+.musica-btn svg { width: 26px; height: 26px; }
+.musica-btn .ico-off { display: none; }
+
+/* Silenciada: botón crema con la bocina tachada */
+.musica-btn.musica-off { background: var(--crema, #f8f3e6); color: var(--vino, #7b1230); }
+.musica-btn.musica-off .ico-on { display: none; }
+.musica-btn.musica-off .ico-off { display: block; }
+
+/* El navegador espera un primer toque para sonar: el botón "late" */
+.musica-btn.musica-espera::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border: 3px solid var(--dorado, #e0a82e);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: musicaPulso 1.6s ease-out infinite;
+}
+@keyframes musicaPulso {
+  from { transform: scale(1);   opacity: .9; }
+  to   { transform: scale(1.6); opacity: 0; }
+}
+
+/* Aviso corto que aparece una vez */
+.musica-aviso {
+  position: fixed;
+  right: 84px; bottom: 26px;
+  z-index: 60;
+  max-width: 240px;
+  padding: 8px 14px;
+  border: 2px solid var(--dorado, #e0a82e);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--texto, #2b1a1f);
+  font-size: .85rem;
+  line-height: 1.35;
+  opacity: 0;
+  transform: translateX(8px);
+  pointer-events: none;
+  transition: opacity .3s, transform .3s;
+}
+.musica-aviso.visible { opacity: 1; transform: none; }
+
+@media (max-width: 520px) {
+  .musica-btn { right: 12px; bottom: 12px; width: 46px; height: 46px; border-width: 2px; }
+  .musica-btn svg { width: 22px; height: 22px; }
+  .musica-aviso { right: 68px; bottom: 16px; max-width: 190px; font-size: .8rem; }
+}
